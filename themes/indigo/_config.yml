@@ -113,12 +113,12 @@ disqus_shortname: false
 # 是否开启友言评论, 填写友言用户id
 uyan_uid: false
 # 是否使用 gitment，https://github.com/imsun/gitment
-# gitment: false
-gitment:
-  owner: flc1125
-  repo: hexo-blog
-  client_id: ee1d59f5e0a843a12a30
-  client_secret: dd27189076fb536942ce9013374e3f115a0d9834
+gitment: false
+# gitment:
+#   owner: flc1125
+#   repo: hexo-blog
+#   client_id: ee1d59f5e0a843a12a30
+#   client_secret: dd27189076fb536942ce9013374e3f115a0d9834
 
 # Valine Comment system. https://valine.js.org
 valine:
