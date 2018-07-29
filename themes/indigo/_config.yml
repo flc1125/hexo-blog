@@ -42,9 +42,6 @@ favicon: /favicon.ico
 # email
 email: false
 
-# sub_author
-sub_author: 叶子坑
-
 # 设置 Android L Chrome 浏览器状态栏颜色
 color: '#3F51B5'
 
