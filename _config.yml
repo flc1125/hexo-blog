@@ -80,5 +80,5 @@ theme: indigo
 deploy:
   type: git
   repo: git@github.com:flc1125/hexo-blog.git
-  # branch: gh-pages
+  branch: gh-pages
 

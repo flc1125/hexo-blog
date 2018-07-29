@@ -11,11 +11,17 @@ node_js:
 install:
   - npm install hexo-cli -g
   - npm install coveralls
-  - echo -e "machine github.com\n  login ${GITHUB_TOKEN}" > ~/.netrc
 
 script:
   - hexo clean
-  - hexo deploy --generate
+  - hexo generate
+
+after-script:
+  - cd public
+  - git init
+  - git add .
+  - git commit -m "Update docs"
+  - git push --quiet --force "https://${GITHUB_TOKEN}@flc1125/hexo-blog.git" master:gh-pages
 
 branches:
   only:
