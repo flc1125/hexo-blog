@@ -21,7 +21,7 @@ after-script:
   - git init
   - git add .
   - git commit -m "Update docs"
-  - git push --quiet --force "https://${GITHUB_TOKEN}@flc1125/hexo-blog.git" master:gh-pages
+  - git push --quiet --force "https://${GITHUB_TOKEN}@github.com/flc1125/hexo-blog.git" master:gh-pages
 
 branches:
   only:
