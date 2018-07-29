@@ -3,19 +3,19 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
+title: Flc's Hexo-Blog
+subtitle: 叶子坑的博客
 description:
 keywords:
-author: John Doe
-language: 
-timezone:
+author: Flc
+language: zh-CN
+timezone: PRC
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://yoursite.com
 root: /
-permalink: :year/:month/:day/:title/
+permalink: archives/:title # :year/:month/:day/:title/
 permalink_defaults:
 
 # Directory
