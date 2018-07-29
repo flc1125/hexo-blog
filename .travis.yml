@@ -1,8 +1,7 @@
-language: python
-cache: pip
+language: node_js
 
-python:
-  - "3.6"
+node_js:
+  - 8
 
 install:
   - npm install hexo-cli -g
@@ -10,7 +9,7 @@ install:
   - echo -e "machine github.com\n  login ${GITHUB_TOKEN}" > ~/.netrc
 
 script:
-  - mkdocs gh-deploy --force --clean
+  - hexo deploy
 
 branches:
   only:
