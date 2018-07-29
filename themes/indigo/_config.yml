@@ -14,24 +14,24 @@ menu:
   archives:
     text: 文章
     url: /archives
-  tags:
-    text: 标签
-    url: /tags
-  th-list:
-    text: 分类
-    url: /categories
+  # tags:
+  #   text: 标签
+  #   url: /tags
+  # th-list:
+  #   text: 分类
+  #   url: /categories
   github:
-    url: https://github.com/yscoder
+    url: https://github.com/flc1125
     target: _blank
-  weibo:
-    url: http://www.weibo.com/ysweb
-    target: _blank
-  link:
-    text: 测试
-    url: /custom
+  # weibo:
+  #   url: http://www.weibo.com/ysweb
+  #   target: _blank
+  # link:
+  #   text: 测试
+  #   url: /custom
 
 # 你的头像url
-avatar: /img/avatar.jpg
+avatar: /images/avatar.jpg
 # avatar link
 avatar_link: /
 # 头像背景图
@@ -40,7 +40,10 @@ brand: /img/brand.jpg
 favicon: /favicon.ico
 
 # email
-email: 叶子坑
+email: false
+
+# sub_author
+sub_author: 叶子坑
 
 # 设置 Android L Chrome 浏览器状态栏颜色
 color: '#3F51B5'
@@ -64,11 +67,11 @@ show_last_updated: true
 share: false
 
 # 是否开启打赏，关闭 reward: false
-reward: false
-# reward:
-#   title: 谢谢大爷~
-#   wechat: /img/wechat.jpg     #微信，关闭设为 false
-#   alipay: /img/alipay.jpg     #支付宝，关闭设为 false
+# reward: false
+reward:
+  title: 谢谢大爷~
+  wechat: /img/wechat.jpg     #微信，关闭设为 false
+  alipay: /img/alipay.jpg     #支付宝，关闭设为 false
 
 # 是否开启搜索
 search: true
