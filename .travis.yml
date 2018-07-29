@@ -15,8 +15,6 @@ install:
 script:
   - hexo clean
   - hexo generate
-
-after-script:
   - cd public
   - git init
   - git add .
