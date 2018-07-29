@@ -78,4 +78,7 @@ theme: indigo
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:flc1125/hexo-blog.git
+  branch: gh-pages
+

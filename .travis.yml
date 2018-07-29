@@ -1,0 +1,17 @@
+language: python
+cache: pip
+
+python:
+  - "3.6"
+
+install:
+  - npm install hexo-cli -g
+  - npm install
+  - echo -e "machine github.com\n  login ${GITHUB_TOKEN}" > ~/.netrc
+
+script:
+  - mkdocs gh-deploy --force --clean
+
+branches:
+  only:
+    - master
