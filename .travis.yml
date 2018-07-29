@@ -5,11 +5,11 @@ node_js:
 
 install:
   - npm install hexo-cli -g
-  - npm install
+  - npm install coveralls
   - echo -e "machine github.com\n  login ${GITHUB_TOKEN}" > ~/.netrc
 
 script:
-  - hexo deploy
+  - hexo deploy --generate
 
 branches:
   only:
