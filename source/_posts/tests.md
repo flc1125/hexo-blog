@@ -1,5 +1,7 @@
 ---
 title: tests-抽象工厂模式（Abstract Factory）
+date: 2018-07-28
+updated: 2018-07-28
 ---
 
 > 原文：https://laravel-china.org/docs/php-design-patterns/2018/AbstractFactory/1487
