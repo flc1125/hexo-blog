@@ -10,8 +10,8 @@ node_js:
 
 install:
   - npm install hexo-cli -g
-  # - npm install coveralls
-  - npm install hexo-autoprefixer hexo-filter-cleanup hexo-generator-feed hexo-generator-sitemap hexo-renderer-sass hexo-renderer-swig mamboer/lunr.js moment node-sass object-assign
+  - npm install coveralls
+  # - npm install hexo-autoprefixer hexo-filter-cleanup hexo-generator-feed hexo-generator-sitemap hexo-renderer-sass hexo-renderer-swig mamboer/lunr.js moment node-sass object-assign
 
 script:
   - hexo clean
