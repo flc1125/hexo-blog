@@ -1,5 +1,5 @@
 ---
-title: docker nginx搭建负载均衡
+title: docker nginx 搭建负载均衡
 date: 2018-09-07 18:24:34
 updated: 2018-09-07 18:24:39
 categories: 
@@ -26,32 +26,32 @@ docker netware create nginx # 创建名称 nginx 网络
 
 > 负载均衡，所以至少需要三个 nginx 容器
 
-- 负载均衡器
+### 负载均衡器
 
-    ```bash
-    docker run -dit -v /nginx/:/nginx/ -p 80:80 --network nginx --network-alias master --name nginx-master nginx:alpine
-    # 挂载目录仅演示目的
-    ```
+```bash
+docker run -dit -v /nginx/:/nginx/ -p 80:80 --network nginx --network-alias master --name nginx-master nginx:alpine
+# 挂载目录仅演示目的
+```
+
+说明：
+
+- `--network nginx` 使用 `nginx` 网络
+- `--network-alias master` 网络中的别名
+- **宿主机对应 `80` 端口**
+
+### WEB节点A
+
+```bash
+docker run -dit -v /nginx/:/nginx/ -p 8001:80 --network nginx --network-alias slave1 --name nginx-slave1 nginx:alpine
+# 8001 自定义，不重复即可
+```
     
-    说明：
-    
-    - `--network nginx` 使用 `nginx` 网络
-    - `--network-alias master` 网络中的别名
-    - **宿主机对应 `80` 端口**
+### WEB节点B
 
-- WEB节点A
-
-    ```bash
-    docker run -dit -v /nginx/:/nginx/ -p 8001:80 --network nginx --network-alias slave1 --name nginx-slave1 nginx:alpine
-    # 8001 自定义，不重复即可
-    ```
-    
-- WEB节点B
-
-    ```bash
-    docker run -dit -v /nginx/:/nginx/ -p 8002:80 --network nginx --network-alias slave2 --name nginx-slave2 nginx:alpine
-    # 8002 自定义，不重复即可
-    ```
+```bash
+docker run -dit -v /nginx/:/nginx/ -p 8002:80 --network nginx --network-alias slave2 --name nginx-slave2 nginx:alpine
+# 8002 自定义，不重复即可
+```
 
 ## nginx 配置
 
