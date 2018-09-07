@@ -2,7 +2,6 @@
 title: 这个世界的女人和孩子
 date: 2018-08-01 09:12:55
 updated: 2018-08-01 09:12:58
-cover: covers/201808/1.jpg
 categories: 
     - 转载
 ---
