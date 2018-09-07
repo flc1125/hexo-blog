@@ -2,6 +2,7 @@
 title: docker nginx 搭建负载均衡
 date: 2018-09-07 18:24:34
 updated: 2018-09-07 18:24:39
+cover: covers/201809/1.jpg
 categories: 
     - 运维
 ---

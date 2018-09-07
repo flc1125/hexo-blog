@@ -83,7 +83,8 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 # theme: skapp
-theme: indigo
+theme: diaspora
+# theme: indigo
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
