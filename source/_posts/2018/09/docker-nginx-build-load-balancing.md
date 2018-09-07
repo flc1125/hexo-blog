@@ -57,24 +57,24 @@ docker run -dit -v /nginx/:/nginx/ -p 8002:80 --network nginx --network-alias sl
 
 > 仅列出核心部分代码
 
-- 负载均衡器
+### 负载均衡器
 
-    ```nginx
-    upstream web {
-        server slave1:80 weight=3;  # weight 为权重
-        server slave2:80 weight=1;
-    }
-    
-    location / {
-       proxy_pass   http://web;
-    }
-    ```
+```nginx
+upstream web {
+    server slave1:80 weight=3;  # weight 为权重
+    server slave2:80 weight=1;
+}
 
-- WEB节点A/B
+location / {
+   proxy_pass   http://web;
+}
+```
 
-    ```
-    location / {
-        root   /data/html;
-        index  index.html index.htm;
-    }
-    ```
+### WEB节点A/B
+
+```
+location / {
+    root   /data/html;
+    index  index.html index.htm;
+}
+```
