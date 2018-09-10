@@ -17,9 +17,13 @@ menu:
   # tags:
   #   text: 标签
   #   url: /tags
-  th-list:
-    text: 分类
-    url: /categories
+  # th-list:
+  #   text: 分类
+  #   url: /categories
+  book:
+    text: 文档库
+    url: https://docs.flc.io
+    target: _blank
   github:
     url: https://github.com/flc1125
     target: _blank
@@ -160,4 +164,4 @@ cdn: false
 lightbox: true
 
 # icp备案号  ICP_license: 京ICP备1234556号-1
-ICP_license: false
+ICP_license: 粤ICP备15063901号
