@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>docker nginx 搭建负载均衡 | 叶子坑 | 来也匆匆，去也匆匆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="基于多个 Docker 容器  拉取 nginx 镜像docker pull nginx:alpine # 推荐 alpine 容器间通信官方提供的是 docker network 作为解决方案 docker netware create nginx # 创建名称 nginx 网络 创建容器 负载均衡，所以至少需要三个 nginx 容器  负载均衡器docker run -dit -v /ngi">
+<meta name="keywords" content="叶子坑, 技术分享, 资源分享">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker nginx 搭建负载均衡">
+<meta property="og:url" content="http://yoursite.com/2018/09/docker-nginx-build-load-balancing.html">
+<meta property="og:site_name" content="叶子坑">
+<meta property="og:description" content="基于多个 Docker 容器  拉取 nginx 镜像docker pull nginx:alpine # 推荐 alpine 容器间通信官方提供的是 docker network 作为解决方案 docker netware create nginx # 创建名称 nginx 网络 创建容器 负载均衡，所以至少需要三个 nginx 容器  负载均衡器docker run -dit -v /ngi">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-07T10:24:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="docker nginx 搭建负载均衡">
+<meta name="twitter:description" content="基于多个 Docker 容器  拉取 nginx 镜像docker pull nginx:alpine # 推荐 alpine 容器间通信官方提供的是 docker network 作为解决方案 docker netware create nginx # 创建名称 nginx 网络 创建容器 负载均衡，所以至少需要三个 nginx 容器  负载均衡器docker run -dit -v /ngi">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">叶子坑</h5>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://docs.flc.io" target="_blank" >
+                <i class="icon icon-lg icon-book"></i>
+                文档库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/flc1125" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">docker nginx 搭建负载均衡</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">docker nginx 搭建负载均衡</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-07T10:24:34.000Z" itemprop="datePublished" class="page-time">
+  2018-09-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/devops/">运维</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#拉取-nginx-镜像"><span class="post-toc-number">1.</span> <span class="post-toc-text">拉取 nginx 镜像</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#容器间通信"><span class="post-toc-number">2.</span> <span class="post-toc-text">容器间通信</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建容器"><span class="post-toc-number">3.</span> <span class="post-toc-text">创建容器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#负载均衡器"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">负载均衡器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#WEB节点A"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">WEB节点A</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#WEB节点B"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">WEB节点B</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#nginx-配置"><span class="post-toc-number">4.</span> <span class="post-toc-text">nginx 配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#负载均衡器-1"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">负载均衡器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#WEB节点A-B"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">WEB节点A/B</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2018/09/docker-nginx-build-load-balancing"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">docker nginx 搭建负载均衡</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-07 18:24:34" datetime="2018-09-07T10:24:34.000Z"  itemprop="datePublished">2018-09-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/devops/">运维</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>基于多个 Docker 容器</p>
+</blockquote>
+<h2 id="拉取-nginx-镜像"><a href="#拉取-nginx-镜像" class="headerlink" title="拉取 nginx 镜像"></a>拉取 nginx 镜像</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull nginx:alpine <span class="comment"># 推荐 alpine</span></span><br></pre></td></tr></table></figure>
+<h2 id="容器间通信"><a href="#容器间通信" class="headerlink" title="容器间通信"></a>容器间通信</h2><p>官方提供的是 <code>docker network</code> 作为解决方案</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker netware create nginx <span class="comment"># 创建名称 nginx 网络</span></span><br></pre></td></tr></table></figure>
+<h2 id="创建容器"><a href="#创建容器" class="headerlink" title="创建容器"></a>创建容器</h2><blockquote>
+<p>负载均衡，所以至少需要三个 nginx 容器</p>
+</blockquote>
+<h3 id="负载均衡器"><a href="#负载均衡器" class="headerlink" title="负载均衡器"></a>负载均衡器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -dit -v /nginx/:/nginx/ -p 80:80 --network nginx --network-alias master --name nginx-master nginx:alpine</span><br><span class="line"><span class="comment"># 挂载目录仅演示目的</span></span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<ul>
+<li><code>--network nginx</code> 使用 <code>nginx</code> 网络</li>
+<li><code>--network-alias master</code> 网络中的别名</li>
+<li><strong>宿主机对应 <code>80</code> 端口</strong></li>
+</ul>
+<h3 id="WEB节点A"><a href="#WEB节点A" class="headerlink" title="WEB节点A"></a>WEB节点A</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -dit -v /nginx/:/nginx/ -p 8001:80 --network nginx --network-alias slave1 --name nginx-slave1 nginx:alpine</span><br><span class="line"><span class="comment"># 8001 自定义，不重复即可</span></span><br></pre></td></tr></table></figure>
+<h3 id="WEB节点B"><a href="#WEB节点B" class="headerlink" title="WEB节点B"></a>WEB节点B</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -dit -v /nginx/:/nginx/ -p 8002:80 --network nginx --network-alias slave2 --name nginx-slave2 nginx:alpine</span><br><span class="line"><span class="comment"># 8002 自定义，不重复即可</span></span><br></pre></td></tr></table></figure>
+<h2 id="nginx-配置"><a href="#nginx-配置" class="headerlink" title="nginx 配置"></a>nginx 配置</h2><blockquote>
+<p>仅列出核心部分代码</p>
+</blockquote>
+<h3 id="负载均衡器-1"><a href="#负载均衡器-1" class="headerlink" title="负载均衡器"></a>负载均衡器</h3><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">upstream</span> web &#123;</span><br><span class="line">    <span class="attribute">server</span> slave1:<span class="number">80</span> weight=<span class="number">3</span>;  <span class="comment"># weight 为权重</span></span><br><span class="line">    <span class="attribute">server</span> slave2:<span class="number">80</span> weight=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="attribute">location</span> / &#123;</span><br><span class="line">   <span class="attribute">proxy_pass</span>   http://web;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="WEB节点A-B"><a href="#WEB节点A-B" class="headerlink" title="WEB节点A/B"></a>WEB节点A/B</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    root   /data/html;</span><br><span class="line">    index  index.html index.htm;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-07T10:24:39.000Z" itemprop="dateUpdated">2018-09-07 18:24:39</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/images/avatar.jpg" alt="叶子坑">
+            叶子坑
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/08/women-and-children-of-this-world.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">这个世界的女人和孩子</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>叶子坑 &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备15063901号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Travis CI &amp; Github 自动化构建 | 叶子坑 | 来也匆匆，去也匆匆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="起因个人文档（ http://docs.flc.io/ ）： 源文件托管至 Github （ https://github.com/flc1125/docs ）平台。但每次更新文档后都需要手动执行 mkdocs gh-deploy 发布至 gh-pages 分支才能访问。 为节省此操作和对环境软件的依赖，于是用起 Travis CI 持续化集成。 Github Token 用于 Travis 加入">
+<meta name="keywords" content="叶子坑, 技术分享, 资源分享">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Travis CI &amp; Github 自动化构建">
+<meta property="og:url" content="http://yoursite.com/2018/07/travis-ci-github-automated-build.html">
+<meta property="og:site_name" content="叶子坑">
+<meta property="og:description" content="起因个人文档（ http://docs.flc.io/ ）： 源文件托管至 Github （ https://github.com/flc1125/docs ）平台。但每次更新文档后都需要手动执行 mkdocs gh-deploy 发布至 gh-pages 分支才能访问。 为节省此操作和对环境软件的依赖，于是用起 Travis CI 持续化集成。 Github Token 用于 Travis 加入">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2018/07/travis-ci-github-automated-build/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/travis-ci-github-automated-build/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/travis-ci-github-automated-build/3.png">
+<meta property="og:updated_time" content="2018-07-26T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Travis CI &amp; Github 自动化构建">
+<meta name="twitter:description" content="起因个人文档（ http://docs.flc.io/ ）： 源文件托管至 Github （ https://github.com/flc1125/docs ）平台。但每次更新文档后都需要手动执行 mkdocs gh-deploy 发布至 gh-pages 分支才能访问。 为节省此操作和对环境软件的依赖，于是用起 Travis CI 持续化集成。 Github Token 用于 Travis 加入">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/travis-ci-github-automated-build/1.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">叶子坑</h5>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://docs.flc.io" target="_blank" >
+                <i class="icon icon-lg icon-book"></i>
+                文档库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/flc1125" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Travis CI &amp; Github 自动化构建</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Travis CI &amp; Github 自动化构建</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-26T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-07-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/devops/">运维</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#起因"><span class="post-toc-number">1.</span> <span class="post-toc-text">起因</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Github-Token"><span class="post-toc-number">2.</span> <span class="post-toc-text">Github Token</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Travis-CI"><span class="post-toc-number">3.</span> <span class="post-toc-text">Travis CI</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#travis-yml"><span class="post-toc-number">4.</span> <span class="post-toc-text">.travis.yml</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#相关文档"><span class="post-toc-number">5.</span> <span class="post-toc-text">相关文档</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2018/07/travis-ci-github-automated-build"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Travis CI & Github 自动化构建</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-27 00:00:00" datetime="2018-07-26T16:00:00.000Z"  itemprop="datePublished">2018-07-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/devops/">运维</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>个人文档（ <a href="http://docs.flc.io/" target="_blank" rel="noopener">http://docs.flc.io/</a> ）： 源文件托管至 Github （ <a href="https://github.com/flc1125/docs" target="_blank" rel="noopener">https://github.com/flc1125/docs</a> ）平台。但每次更新文档后都需要手动执行 <code>mkdocs gh-deploy</code> 发布至 <code>gh-pages</code> 分支才能访问。</p>
+<p>为节省此操作和对环境软件的依赖，于是用起 Travis CI 持续化集成。</p>
+<h2 id="Github-Token"><a href="#Github-Token" class="headerlink" title="Github Token"></a>Github Token</h2><blockquote>
+<p>用于 <code>Travis</code> 加入 <code>Github</code> 的授权使用</p>
+</blockquote>
+<p>Token 创建地址: <a href="https://github.com/settings/tokens；勾选" target="_blank" rel="noopener">https://github.com/settings/tokens；勾选</a> <code>repo</code> 下所有选项。该 Token 不可暴露</p>
+<img src="/2018/07/travis-ci-github-automated-build/1.png" class="slug">
+<h2 id="Travis-CI"><a href="#Travis-CI" class="headerlink" title="Travis CI"></a>Travis CI</h2><img src="/2018/07/travis-ci-github-automated-build/2.png" class="slug">
+<p>如图勾选状态；点击 <code>settings</code> 进行配置</p>
+<img src="/2018/07/travis-ci-github-automated-build/3.png" class="slug">
+<p>如图：</p>
+<ul>
+<li>A 输入变量名（名字随意）: <code>GITHUB_TOKEN</code></li>
+<li>B 输入上文创建的 <code>Token</code></li>
+<li><strong>C 禁用，否则会在构建过程中暴露 Token 信息</strong></li>
+</ul>
+<h2 id="travis-yml"><a href="#travis-yml" class="headerlink" title=".travis.yml"></a>.travis.yml</h2><p>在托管平台创建 <code>.travis.yml</code> 文件。写入下文（仅适用本文 docs 项目，具体自行研究）</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">python</span></span><br><span class="line"><span class="attr">cache:</span> <span class="string">pip</span></span><br><span class="line"></span><br><span class="line"><span class="attr">python:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">"3.6"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">install:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">pip</span> <span class="string">install</span> <span class="string">mkdocs</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">pip</span> <span class="string">install</span> <span class="string">mkdocs-material</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">pip</span> <span class="string">install</span> <span class="string">pygments</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">pip</span> <span class="string">install</span> <span class="string">pymdown-extensions</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">echo</span> <span class="bullet">-e</span> <span class="string">"machine github.com\n  login $&#123;GITHUB_TOKEN&#125;"</span> <span class="string">&gt; ~/.netrc # 这个研究了好久</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span><span class="attr">script:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">mkdocs</span> <span class="string">gh-deploy</span> <span class="bullet">--force</span> <span class="bullet">--clean</span></span><br><span class="line"></span><br><span class="line"><span class="attr">branches:</span></span><br><span class="line"><span class="attr">  only:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如此操作后，即可实现自动化构建；内容略粗糙，仅为了记录用。</p>
+</blockquote>
+<h2 id="相关文档"><a href="#相关文档" class="headerlink" title="相关文档"></a>相关文档</h2><ul>
+<li>Travis加入Github认证操作：<a href="https://docs.travis-ci.com/user/customizing-the-build/#authentication" target="_blank" rel="noopener">https://docs.travis-ci.com/user/customizing-the-build/#authentication</a></li>
+<li>官方文档：<a href="https://docs.travis-ci.com/" target="_blank" rel="noopener">https://docs.travis-ci.com/</a></li>
+<li>GitHub Pages<a href="https://pages.github.com/" target="_blank" rel="noopener">https://pages.github.com/</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-07-26T16:00:00.000Z" itemprop="dateUpdated">2018-07-27 00:00:00</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/images/avatar.jpg" alt="叶子坑">
+            叶子坑
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/08/women-and-children-of-this-world.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">这个世界的女人和孩子</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/795.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">陆勇——《我不是药神》原型</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>叶子坑 &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备15063901号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

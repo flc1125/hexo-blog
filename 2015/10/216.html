@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>javascript立即调用的函数表达式 | 叶子坑 | 来也匆匆，去也匆匆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="前言大家学JavaScript的时候，经常遇到自执行匿名函数的代码，今天我们主要就来想想说一下自执行。 在详细了解这个之前，我们来谈了解一下“自执行”这个叫法，本文对这个功能的叫法也不一定完全对，主要是看个人如何理解，因为有的人说立即调用，有的人说自动执行，所以你完全可以按照你自己的理解来取一个名字，不过我听很多人都叫它为“自执行”，但作者后面说了很多，来说服大家称呼为“立即调用的函数表达式”。">
+<meta name="keywords" content="叶子坑, 技术分享, 资源分享">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript立即调用的函数表达式">
+<meta property="og:url" content="http://yoursite.com/2015/10/216.html">
+<meta property="og:site_name" content="叶子坑">
+<meta property="og:description" content="前言大家学JavaScript的时候，经常遇到自执行匿名函数的代码，今天我们主要就来想想说一下自执行。 在详细了解这个之前，我们来谈了解一下“自执行”这个叫法，本文对这个功能的叫法也不一定完全对，主要是看个人如何理解，因为有的人说立即调用，有的人说自动执行，所以你完全可以按照你自己的理解来取一个名字，不过我听很多人都叫它为“自执行”，但作者后面说了很多，来说服大家称呼为“立即调用的函数表达式”。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2015-10-24T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript立即调用的函数表达式">
+<meta name="twitter:description" content="前言大家学JavaScript的时候，经常遇到自执行匿名函数的代码，今天我们主要就来想想说一下自执行。 在详细了解这个之前，我们来谈了解一下“自执行”这个叫法，本文对这个功能的叫法也不一定完全对，主要是看个人如何理解，因为有的人说立即调用，有的人说自动执行，所以你完全可以按照你自己的理解来取一个名字，不过我听很多人都叫它为“自执行”，但作者后面说了很多，来说服大家称呼为“立即调用的函数表达式”。">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">叶子坑</h5>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://docs.flc.io" target="_blank" >
+                <i class="icon icon-lg icon-book"></i>
+                文档库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/flc1125" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">javascript立即调用的函数表达式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">javascript立即调用的函数表达式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-10-24T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2015-10-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/reproduce/">转载</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是自执行？"><span class="post-toc-number">2.</span> <span class="post-toc-text">什么是自执行？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题的核心"><span class="post-toc-number">3.</span> <span class="post-toc-text">问题的核心</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#旁白：函数-function-，括弧-paren-，语法错误-SyntaxError"><span class="post-toc-number">4.</span> <span class="post-toc-text">旁白：函数(function)，括弧(paren)，语法错误(SyntaxError)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自执行函数表达式"><span class="post-toc-number">5.</span> <span class="post-toc-text">自执行函数表达式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用闭包保存状态"><span class="post-toc-number">6.</span> <span class="post-toc-text">用闭包保存状态</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自执行匿名函数和立即执行的函数表达式区别"><span class="post-toc-number">7.</span> <span class="post-toc-text">自执行匿名函数和立即执行的函数表达式区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最后的旁白：Module模式"><span class="post-toc-number">8.</span> <span class="post-toc-text">最后的旁白：Module模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更多阅读"><span class="post-toc-number">9.</span> <span class="post-toc-text">更多阅读</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2015/10/216"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">javascript立即调用的函数表达式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-10-25 00:00:00" datetime="2015-10-24T16:00:00.000Z"  itemprop="datePublished">2015-10-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/reproduce/">转载</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大家学JavaScript的时候，经常遇到自执行匿名函数的代码，今天我们主要就来想想说一下自执行。</p>
+<p>在详细了解这个之前，我们来谈了解一下“自执行”这个叫法，本文对这个功能的叫法也不一定完全对，主要是看个人如何理解，因为有的人说立即调用，有的人说自动执行，所以你完全可以按照你自己的理解来取一个名字，不过我听很多人都叫它为“自执行”，但作者后面说了很多，来说服大家称呼为“立即调用的函数表达式”。</p>
+<p>本文英文原文地址：<a href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/" target="_blank" rel="noopener">http://benalman.com/news/2010/11/immediately-invoked-function-expression/</a></p>
+<h2 id="什么是自执行？"><a href="#什么是自执行？" class="headerlink" title="什么是自执行？"></a>什么是自执行？</h2><p>在 JavaScript 里，任何 <code>function</code> 在执行的时候都会创建一个执行上下文，因为为 <code>function</code> 声明的变量和 <code>function</code> 有可能只在该 <code>function</code> 内部，这个上下文，在调用 <code>function</code> 的时候，提供了一种简单的方式来创建自由变量或私有子 <code>function</code>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 由于该function里返回了另外一个function，其中这个function可以访问自由变量i</span></span><br><span class="line"><span class="comment">// 所有说，这个内部的function实际上是有权限可以调用内部的对象。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeCounter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 只能在makeCounter内部访问i</span></span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(++i);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意，counter和counter2是不同的实例，分别有自己范围内的i。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> counter = makeCounter();</span><br><span class="line">counter(); <span class="comment">// logs: 1</span></span><br><span class="line">counter(); <span class="comment">// logs: 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> counter2 = makeCounter();</span><br><span class="line">counter2(); <span class="comment">// logs: 1</span></span><br><span class="line">counter2(); <span class="comment">// logs: 2</span></span><br><span class="line"></span><br><span class="line">alert(i); <span class="comment">// 引用错误：i没有defind（因为i是存在于makeCounter内部）。</span></span><br></pre></td></tr></table></figure>
+<p>很多情况下，我们不需要 <code>makeCounter</code> 多个实例，甚至某些 <code>case</code> 下，我们也不需要显示的返回值，OK，往下看。</p>
+<h2 id="问题的核心"><a href="#问题的核心" class="headerlink" title="问题的核心"></a>问题的核心</h2><p>当你声明类似 <code>function foo(){}</code> 或 <code>var foo = function(){}</code> 函数的时候，通过在后面加个括弧就可以实现自执行，例如 <code>foo()</code> ，看代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 因为想下面第一个声明的function可以在后面加一个括弧()就可以自己执行了，比如foo()，</span></span><br><span class="line"><span class="comment">// 因为foo仅仅是function() &#123; /* code */ &#125;这个表达式的一个引用</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">/* code */</span> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// ...是不是意味着后面加个括弧都可以自动执行？</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">/* code */</span> &#125;(); <span class="comment">// SyntaxError: Unexpected token (</span></span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+<p>上述代码，如果甚至运行，第2个代码会出错，因为在解析器解析全局的 <code>function</code> 或者 <code>function</code> 内部 <code>function</code> 关键字的时候，默认是认为 <code>function</code> 声明，而不是 <code>function</code> 表达式，如果你不显示告诉编译器，它默认会声明成一个缺少名字的 <code>function</code> ，并且抛出一个语法错误信息，因为 <code>function</code> 声明需要一个名字。</p>
+<h2 id="旁白：函数-function-，括弧-paren-，语法错误-SyntaxError"><a href="#旁白：函数-function-，括弧-paren-，语法错误-SyntaxError" class="headerlink" title="旁白：函数(function)，括弧(paren)，语法错误(SyntaxError)"></a>旁白：函数(<code>function</code>)，括弧(<code>paren</code>)，语法错误(<code>SyntaxError</code>)</h2><p>有趣的是，即便你为上面那个错误的代码加上一个名字，他也会提示语法错误，只不过和上面的原因不一样。在一个表达式后面加上括号<code>()</code>，该表达式会立即执行，但是在一个语句后面加上括号<code>()</code>，是完全不一样的意思，他的只是分组操作符。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面这个function在语法上是没问题的，但是依然只是一个语句</span></span><br><span class="line"><span class="comment">// 加上括号()以后依然会报错，因为分组操作符需要包含表达式</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123; <span class="comment">/* code */</span> &#125;(); <span class="comment">// SyntaxError: Unexpected token )</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// 但是如果你在括弧()里传入一个表达式，将不会有异常抛出</span></span><br><span class="line"><span class="comment">// 但是foo函数依然不会执行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123; <span class="comment">/* code */</span> &#125;( <span class="number">1</span> );</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 因为它完全等价于下面这个代码，一个function声明后面，又声明了一个毫无关系的表达式： </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123; <span class="comment">/* code */</span> &#125;</span><br><span class="line"> </span><br><span class="line">( <span class="number">1</span> );</span><br></pre></td></tr></table></figure>
+<p>你可以访问 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/#question-about-surrounding-parentheses" target="_blank" rel="noopener">ECMA-262-3 in detail. Chapter 5. Functions</a> 获取进一步的信息。</p>
+<h2 id="自执行函数表达式"><a href="#自执行函数表达式" class="headerlink" title="自执行函数表达式"></a>自执行函数表达式</h2><p>要解决上述问题，非常简单，我们只需要用大括弧将代码的代码全部括住就行了，因为 JavaScript 里括弧 <code>()</code> 里面不能包含语句，所以在这一点上，解析器在解析 <code>function</code> 关键字的时候，会将相应的代码解析成 <code>function</code> 表达式，而不是 <code>function</code> 声明。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面2个括弧()都会立即执行</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* code */</span> &#125; ()); <span class="comment">// 推荐使用这个</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* code */</span> &#125;)(); <span class="comment">// 但是这个也是可以用的</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 由于括弧()和JS的&amp;&amp;，异或，逗号等操作符是在函数表达式和函数声明上消除歧义的</span></span><br><span class="line"><span class="comment">// 所以一旦解析器知道其中一个已经是表达式了，其它的也都默认为表达式了</span></span><br><span class="line"><span class="comment">// 不过，请注意下一章节的内容解释</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="number">10</span>; &#125; ();</span><br><span class="line"><span class="literal">true</span> &amp;&amp; <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* code */</span> &#125; ();</span><br><span class="line"><span class="number">0</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* code */</span> &#125; ();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果你不在意返回值，或者不怕难以阅读</span></span><br><span class="line"><span class="comment">// 你甚至可以在function前面加一元操作符号</span></span><br><span class="line"></span><br><span class="line">!<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* code */</span> &#125; ();</span><br><span class="line">~<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* code */</span> &#125; ();</span><br><span class="line">-<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* code */</span> &#125; ();</span><br><span class="line">+<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* code */</span> &#125; ();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 还有一个情况，使用new关键字,也可以用，但我不确定它的效率</span></span><br><span class="line"><span class="comment">// http://twitter.com/kuvos/status/18209252090847232</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* code */</span> &#125;</span><br><span class="line"><span class="keyword">new</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* code */</span> &#125; () <span class="comment">// 如果需要传递参数，只需要加上括弧()</span></span><br></pre></td></tr></table></figure>
+<p>上面所说的括弧是消除歧义的，其实压根就没必要，因为括弧本来内部本来期望的就是函数表达式，但是我们依然用它，主要是为了方便开发人员阅读，当你让这些已经自动执行的表达式赋值给一个变量的时候，我们看到开头有括弧(，很快就能明白，而不需要将代码拉到最后看看到底有没有加括弧。</p>
+<h2 id="用闭包保存状态"><a href="#用闭包保存状态" class="headerlink" title="用闭包保存状态"></a>用闭包保存状态</h2><p>和普通 <code>function</code> 执行的时候传参数一样，自执行的函数表达式也可以这么传参，因为闭包直接可以引用传入的这些参数，利用这些被 lock 住的传入参数，自执行函数表达式可以有效地保存状态。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这个代码是错误的，因为变量i从来就没背locked住</span></span><br><span class="line"><span class="comment">// 相反，当循环执行以后，我们在点击的时候i才获得数值</span></span><br><span class="line"><span class="comment">// 因为这个时候i操真正获得值</span></span><br><span class="line"><span class="comment">// 所以说无论点击那个连接，最终显示的都是I am link #10（如果有10个a元素的话）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> elems = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'a'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; elems.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">    elems[i].addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        e.preventDefault();</span><br><span class="line">        alert(<span class="string">'I am link #'</span> + i);</span><br><span class="line">    &#125;, <span class="string">'false'</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个是可以用的，因为他在自执行函数表达式闭包内部</span></span><br><span class="line"><span class="comment">// i的值作为locked的索引存在，在循环执行结束以后，尽管最后i的值变成了a元素总数（例如10）</span></span><br><span class="line"><span class="comment">// 但闭包内部的lockedInIndex值是没有改变，因为他已经执行完毕了</span></span><br><span class="line"><span class="comment">// 所以当点击连接的时候，结果是正确的</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> elems = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'a'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; elems.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params">lockedInIndex</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        elems[i].addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">            e.preventDefault();</span><br><span class="line">            alert(<span class="string">'I am link #'</span> + lockedInIndex);</span><br><span class="line">        &#125;, <span class="string">'false'</span>);</span><br><span class="line"></span><br><span class="line">    &#125;)(i);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 你也可以像下面这样应用，在处理函数那里使用自执行函数表达式</span></span><br><span class="line"><span class="comment">// 而不是在addEventListener外部</span></span><br><span class="line"><span class="comment">// 但是相对来说，上面的代码更具可读性</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> elems = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'a'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; elems.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">    elems[i].addEventListener(<span class="string">'click'</span>, (<span class="function"><span class="keyword">function</span> (<span class="params">lockedInIndex</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">            e.preventDefault();</span><br><span class="line">            alert(<span class="string">'I am link #'</span> + lockedInIndex);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;)(i), <span class="string">'false'</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其实，上面2个例子里的 <code>lockedInIndex</code> 变量，也可以换成 <code>i</code>，因为和外面的i不在一个作用于，所以不会出现问题，这也是匿名函数 + 闭包的威力。</p>
+<h2 id="自执行匿名函数和立即执行的函数表达式区别"><a href="#自执行匿名函数和立即执行的函数表达式区别" class="headerlink" title="自执行匿名函数和立即执行的函数表达式区别"></a>自执行匿名函数和立即执行的函数表达式区别</h2><p>在这篇帖子里，我们一直叫自执行函数，确切的说是自执行匿名函数（Self-executing anonymous function），但英文原文作者一直倡议使用立即调用的函数表达式（Immediately-Invoked Function Expression）这一名称，作者又举了一堆例子来解释，好吧，我们来看看：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这是一个自执行的函数，函数内部执行自身，递归</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123; foo(); &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这是一个自执行的匿名函数，因为没有标示名称</span></span><br><span class="line"><span class="comment">// 必须使用arguments.callee属性来执行自己</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="built_in">arguments</span>.callee(); &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这可能也是一个自执行的匿名函数，仅仅是foo标示名称引用它自身</span></span><br><span class="line"><span class="comment">// 如果你将foo改变成其它的，你将得到一个used-to-self-execute匿名函数</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; foo(); &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有些人叫这个是自执行的匿名函数（即便它不是），因为它没有调用自身，它只是立即执行而已。</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* code */</span> &#125; ());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为函数表达式添加一个标示名称，可以方便Debug</span></span><br><span class="line"><span class="comment">// 但一定命名了，这个函数就不再是匿名的了</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123; <span class="comment">/* code */</span> &#125; ());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 立即调用的函数表达式（IIFE）也可以自执行，不过可能不常用罢了</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="built_in">arguments</span>.callee(); &#125; ());</span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123; foo(); &#125; ());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 另外，下面的代码在黑莓5里执行会出错，因为在一个命名的函数表达式里，他的名称是undefined</span></span><br><span class="line"><span class="comment">// 呵呵，奇怪</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123; foo(); &#125; ());</span><br></pre></td></tr></table></figure>
+<p>希望这里的一些例子，可以让大家明白，什么叫自执行，什么叫立即调用。</p>
+<blockquote>
+<p>注： arguments.callee 在 <a href="https://developer.mozilla.org/en/JavaScript/Strict_mode#Differences_in_functions" target="_blank" rel="noopener">ECMAScript 5 strict mode</a> 里被废弃了，所以在这个模式下，其实是不能用的。</p>
+</blockquote>
+<h2 id="最后的旁白：Module模式"><a href="#最后的旁白：Module模式" class="headerlink" title="最后的旁白：Module模式"></a>最后的旁白：Module模式</h2><p>在讲到这个立即调用的函数表达式的时候，我又想起来了Module模式，如果你还不熟悉这个模式，我们先来看看代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建一个立即调用的匿名函数表达式</span></span><br><span class="line"><span class="comment">// return一个变量，其中这个变量里包含你要暴露的东西</span></span><br><span class="line"><span class="comment">// 返回的这个变量将赋值给counter，而不是外面声明的function自身</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> counter = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;,</span><br><span class="line">        set: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">            i = val;</span><br><span class="line">        &#125;,</span><br><span class="line">        increment: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> ++i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125; ());</span><br><span class="line"></span><br><span class="line"><span class="comment">// counter是一个带有多个属性的对象，上面的代码对于属性的体现其实是方法</span></span><br><span class="line"></span><br><span class="line">counter.get(); <span class="comment">// 0</span></span><br><span class="line">counter.set(<span class="number">3</span>);</span><br><span class="line">counter.increment(); <span class="comment">// 4</span></span><br><span class="line">counter.increment(); <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line">counter.i; <span class="comment">// undefined 因为i不是返回对象的属性</span></span><br><span class="line">i; <span class="comment">// 引用错误: i 没有定义（因为i只存在于闭包）</span></span><br></pre></td></tr></table></figure>
+<p>关于更多 Module 模式的介绍，请访问我的上一篇帖子：深入理解JavaScript系列（2）：全面解析Module模式 。</p>
+<h2 id="更多阅读"><a href="#更多阅读" class="headerlink" title="更多阅读"></a>更多阅读</h2><p>希望上面的一些例子，能让你对立即调用的函数表达（也就是我们所说的自执行函数）有所了解，如果你想了解更多关于function和Module模式的信息，请继续访问下面列出的网站：</p>
+<ul>
+<li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/#question-about-surrounding-parentheses" target="_blank" rel="noopener">ECMA-262-3 in detail. Chapter 5. Functions.</a> – Dmitry A. Soshnikov</li>
+<li><a href="https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope" target="_blank" rel="noopener">Functions and function scope</a> – Mozilla Developer Network</li>
+<li><a href="http://kangax.github.com/nfe/" target="_blank" rel="noopener">Named function expressions</a> – Juriy “kangax” Zaytsev</li>
+<li><a href="http://www.cnblogs.com/TomXu/archive/2011/12/30/2288372.html" target="_blank" rel="noopener">全面解析Module模式</a> – Ben Cherry（大叔翻译整理）</li>
+<li><a href="http://skilldrick.co.uk/2011/04/closures-explained-with-javascript/" target="_blank" rel="noopener">Closures explained with JavaScript</a> – Nick Morgan</li>
+</ul>
+<blockquote>
+<p>原文：<a href="http://www.cnblogs.com/TomXu/archive/2011/12/31/2289423.html" target="_blank" rel="noopener">http://www.cnblogs.com/TomXu/archive/2011/12/31/2289423.html</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2015-10-24T16:00:00.000Z" itemprop="dateUpdated">2015-10-25 00:00:00</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/images/avatar.jpg" alt="叶子坑">
+            叶子坑
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/10/248.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">php注释标准</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/08/190.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">百万级PHP网站架构工具箱，高并发架构方案</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>叶子坑 &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备15063901号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

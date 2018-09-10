@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>PHP 命名空间 | 叶子坑 | 来也匆匆，去也匆匆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="PHP中的命名空间是什么？官方解释在此： 命名空间概述 命名空间用一句话说，就是：把 类、函数、变量 等放到子文件夹中去，以避免命名冲突。 被隐藏的第一个在每个 PHP 文件的最开始定义命名空间： &amp;lt;?phpnamespace TinyLara\TinyRoute;class TinyRoute &amp;#123; ...&amp;#125; 在定义命名空间之后引入命名空间： &amp;lt;?phpnamesp">
+<meta name="keywords" content="叶子坑, 技术分享, 资源分享">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP 命名空间">
+<meta property="og:url" content="http://yoursite.com/2015/08/181.html">
+<meta property="og:site_name" content="叶子坑">
+<meta property="og:description" content="PHP中的命名空间是什么？官方解释在此： 命名空间概述 命名空间用一句话说，就是：把 类、函数、变量 等放到子文件夹中去，以避免命名冲突。 被隐藏的第一个在每个 PHP 文件的最开始定义命名空间： &amp;lt;?phpnamespace TinyLara\TinyRoute;class TinyRoute &amp;#123; ...&amp;#125; 在定义命名空间之后引入命名空间： &amp;lt;?phpnamesp">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2015-08-02T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP 命名空间">
+<meta name="twitter:description" content="PHP中的命名空间是什么？官方解释在此： 命名空间概述 命名空间用一句话说，就是：把 类、函数、变量 等放到子文件夹中去，以避免命名冲突。 被隐藏的第一个在每个 PHP 文件的最开始定义命名空间： &amp;lt;?phpnamespace TinyLara\TinyRoute;class TinyRoute &amp;#123; ...&amp;#125; 在定义命名空间之后引入命名空间： &amp;lt;?phpnamesp">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">叶子坑</h5>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://docs.flc.io" target="_blank" >
+                <i class="icon icon-lg icon-book"></i>
+                文档库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/flc1125" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">PHP 命名空间</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">PHP 命名空间</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-08-02T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2015-08-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/php/">PHP</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/php/reproduce/">转载</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PHP中的命名空间是什么？"><span class="post-toc-number">1.</span> <span class="post-toc-text">PHP中的命名空间是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#被隐藏的第一个"><span class="post-toc-number">2.</span> <span class="post-toc-text">被隐藏的第一个</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#被隐藏的别名"><span class="post-toc-number">3.</span> <span class="post-toc-text">被隐藏的别名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用绝对路径直接调用"><span class="post-toc-number">4.</span> <span class="post-toc-text">使用绝对路径直接调用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命名空间的实际价值"><span class="post-toc-number">5.</span> <span class="post-toc-text">命名空间的实际价值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#同一命名空间下的类可以任意相互调用"><span class="post-toc-number">6.</span> <span class="post-toc-text">同一命名空间下的类可以任意相互调用</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2015/08/181"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">PHP 命名空间</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-08-03 00:00:00" datetime="2015-08-02T16:00:00.000Z"  itemprop="datePublished">2015-08-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/php/">PHP</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/php/reproduce/">转载</a></li></ul></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="PHP中的命名空间是什么？"><a href="#PHP中的命名空间是什么？" class="headerlink" title="PHP中的命名空间是什么？"></a>PHP中的命名空间是什么？</h2><p>官方解释在此： <a href="http://php.net/manual/zh/language.namespaces.rationale.php" target="_blank" rel="noopener">命名空间概述</a></p>
+<p>命名空间用一句话说，就是：把 类、函数、变量 等放到子文件夹中去，以避免命名冲突。</p>
+<h2 id="被隐藏的第一个"><a href="#被隐藏的第一个" class="headerlink" title="被隐藏的第一个"></a>被隐藏的第一个</h2><p>在每个 PHP 文件的最开始定义命名空间：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">TinyLara</span>\<span class="title">TinyRoute</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TinyRoute</span> </span>&#123;</span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在定义命名空间之后引入命名空间：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">TinyLara</span>\<span class="title">TinyRoute</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">TinyLara</span>\<span class="title">TinyView</span>\<span class="title">TinyView</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TinyRoute</span> </span>&#123;</span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码中，</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">TinyLara</span>\<span class="title">TinyRoute</span></span><br><span class="line"></span><br><span class="line"><span class="title">use</span> <span class="title">TinyLara</span>\<span class="title">TinyView</span>\<span class="title">TinyView</span></span><br></pre></td></tr></table></figure>
+<p>这两行的真实地址是： <code>\TinyLara\TinyRoute</code>、<code>\TinyLara\TinyView\TinyView</code>，顶级命名空间标识（第一个 <code>\</code> ）被省略了。</p>
+<h2 id="被隐藏的别名"><a href="#被隐藏的别名" class="headerlink" title="被隐藏的别名"></a>被隐藏的别名</h2><p>在上一节中中，这一行代码 <code>use TinyLara\TinyView\TinyView</code> 的完整写法应该是： <code>use \TinyLara\TinyView\TinyView as TinyView</code></p>
+<p>如果不指定别名，那就默认别名为类名，注入当前命名空间。</p>
+<h2 id="使用绝对路径直接调用"><a href="#使用绝对路径直接调用" class="headerlink" title="使用绝对路径直接调用"></a>使用绝对路径直接调用</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">TinyLara</span>\<span class="title">TinyRoute</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TinyRoute</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> \TinyLara\TinyView\TinyView::fuck();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用绝对路径调用类时顶级命名空间标识（第一个 <code>\</code> ）<strong>不能省略</strong>。（很多人都在这个地方迷惑了）</p>
+<h2 id="命名空间的实际价值"><a href="#命名空间的实际价值" class="headerlink" title="命名空间的实际价值"></a>命名空间的实际价值</h2><p>命名空间的存在是为了解决下面两个问题：</p>
+<ul>
+<li>用户编写的代码与PHP内部的类/函数/常量或第三方类/函数/常量之间的名字冲突。</li>
+<li>为很长的标识符名称（通常是为了缓解第一类问题而定义的）创建一个别名（或简短）的名称，提高源代码的可读性。</li>
+</ul>
+<p>目前非常流行的 Composer 就是一个基于命名空间的包管理器/依赖管理器，同样，Laravel 能达到今天的成功，很大程度上也是因为PHP5.3的普及，生恰逢时。你可以在 <a href="https://packagist.org/" target="_blank" rel="noopener">https://packagist.org/</a> 上下载到各种 composer 包，类似于 yum、npm或者gem。</p>
+<h2 id="同一命名空间下的类可以任意相互调用"><a href="#同一命名空间下的类可以任意相互调用" class="headerlink" title="同一命名空间下的类可以任意相互调用"></a>同一命名空间下的类可以任意相互调用</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">A</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassA</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'Success!'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">A</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassB</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        ClassA::test();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>直接调用即可。</p>
+<blockquote>
+<p>原文：<a href="https://lvwenhan.com/php/401.html" target="_blank" rel="noopener">https://lvwenhan.com/php/401.html</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2015-08-02T16:00:00.000Z" itemprop="dateUpdated">2015-08-03 00:00:00</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/images/avatar.jpg" alt="叶子坑">
+            叶子坑
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/08/187.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">酷狗音乐API，关键字搜索歌曲/获取音乐原始路径</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/08/174.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Git 常用命令整理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>叶子坑 &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备15063901号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>php注释标准 | 叶子坑 | 来也匆匆，去也匆匆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="规范注释标准注释 &amp;lt;?php/** * 标题及说明 * * @author 作者 &amp;lt;邮箱&amp;gt; * @param  参数数据类型 参数变量 参数说明 * * @return 返回数据类型 返回说明 */  注： 其中前端应用中参数数据类型，為区分参数变量，会加上{}，如：{参数数据类型}  例子 &amp;lt;?php/** * 加法计算 * * @author 作者 &amp;lt;邮箱&amp;gt;">
+<meta name="keywords" content="叶子坑, 技术分享, 资源分享">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php注释标准">
+<meta property="og:url" content="http://yoursite.com/2015/10/248.html">
+<meta property="og:site_name" content="叶子坑">
+<meta property="og:description" content="规范注释标准注释 &amp;lt;?php/** * 标题及说明 * * @author 作者 &amp;lt;邮箱&amp;gt; * @param  参数数据类型 参数变量 参数说明 * * @return 返回数据类型 返回说明 */  注： 其中前端应用中参数数据类型，為区分参数变量，会加上{}，如：{参数数据类型}  例子 &amp;lt;?php/** * 加法计算 * * @author 作者 &amp;lt;邮箱&amp;gt;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2015-10-26T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php注释标准">
+<meta name="twitter:description" content="规范注释标准注释 &amp;lt;?php/** * 标题及说明 * * @author 作者 &amp;lt;邮箱&amp;gt; * @param  参数数据类型 参数变量 参数说明 * * @return 返回数据类型 返回说明 */  注： 其中前端应用中参数数据类型，為区分参数变量，会加上{}，如：{参数数据类型}  例子 &amp;lt;?php/** * 加法计算 * * @author 作者 &amp;lt;邮箱&amp;gt;">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">叶子坑</h5>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://docs.flc.io" target="_blank" >
+                <i class="icon icon-lg icon-book"></i>
+                文档库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/flc1125" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">php注释标准</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">php注释标准</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-10-26T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2015-10-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/php/">PHP</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#规范注释"><span class="post-toc-number">1.</span> <span class="post-toc-text">规范注释</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据类型"><span class="post-toc-number">2.</span> <span class="post-toc-text">数据类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文档标记"><span class="post-toc-number">3.</span> <span class="post-toc-text">文档标记</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2015/10/248"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">php注释标准</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-10-27 00:00:00" datetime="2015-10-26T16:00:00.000Z"  itemprop="datePublished">2015-10-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/php/">PHP</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="规范注释"><a href="#规范注释" class="headerlink" title="规范注释"></a>规范注释</h2><p><strong>标准注释</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 标题及说明</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 作者 &lt;邮箱&gt;</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>  参数数据类型 参数变量 参数说明</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 返回数据类型 返回说明</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注： 其中前端应用中<code>参数数据类型</code>，為区分参数变量，会加上<code>{}</code>，如：<code>{参数数据类型}</code></p>
+</blockquote>
+<p><strong>例子</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 加法计算</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 作者 &lt;邮箱&gt;</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>  number $m 参数1</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>  number $n 参数2</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> number</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">calc</span><span class="params">($m, $n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $m + $n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><table>
+<thead>
+<tr>
+<th>标识</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>integer</code> 或 <code>int</code></td>
+<td>整数类型</td>
+</tr>
+<tr>
+<td><code>boolean</code> 或 <code>bool</code></td>
+<td>布尔值类型</td>
+</tr>
+<tr>
+<td><code>number</code></td>
+<td>数字</td>
+</tr>
+<tr>
+<td><code>string</code></td>
+<td>字符串</td>
+</tr>
+<tr>
+<td><code>array</code></td>
+<td>数组</td>
+</tr>
+<tr>
+<td><code>object</code></td>
+<td>对象</td>
+</tr>
+<tr>
+<td><code>mixed</code></td>
+<td>混合类型</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td>空类型</td>
+</tr>
+</tbody>
+</table>
+<h2 id="文档标记"><a href="#文档标记" class="headerlink" title="文档标记"></a>文档标记</h2><ul>
+<li>文档标记的使用范围是指该标记可以用来修饰的关键字，或其他文档标记。</li>
+<li>所有的文档标记都是在每一行的 <code>*</code> 后面以<code>@</code>开头。如果在一段话的中间出来@的标记，这个标记将会被当做普通内容而被忽略掉。</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@name</span> 名字</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@abstract</span> 申明变量/类/方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@access</span> 指明这个变量、类、函数/方法的存取权限</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 函数作者的名字和邮箱地址</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@category</span> 组织packages</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@copyright</span> 指明版权信息</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@const</span> 指明常量</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@deprecate</span> 指明不推荐或者是废弃的信息</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@example</span> 示例</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@exclude</span> 指明当前的注释将不进行分析，不出现在文挡中</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@final</span> 指明这是一个最终的类、方法、属性，禁止派生、修改。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@global</span> 指明在此函数中引用的全局变量</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@include</span> 指明包含的文件的信息</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@link</span> 定义在线连接</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@module</span> 定义归属的模块信息</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@modulegroup</span> 定义归属的模块组</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span> 定义归属的包的信息</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> 定义函数或者方法的参数信息</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 定义函数或者方法的返回信息</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span> 定义需要参考的函数、变量，并加入相应的超级连接。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 指明该api函数或者方法是从哪个版本开始引入的</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@static</span> 指明变量、类、函数是静态的。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> 指明此函数可能抛出的错误异常,极其发生的情况</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@todo</span> 指明应该改进或没有实现的地方</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@var</span> 定义说明变量/属性。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 定义版本信息</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>@access</code><br>  使用范围：<code>class</code>,<code>function</code>,<code>var</code>,<code>define</code>,<code>module</code></p>
+<p>  该标记用于指明关键字的存取权限：<code>private</code>、<code>public</code>或<code>proteced</code></p>
+</li>
+<li><p><code>@author</code><br>  指明作者</p>
+</li>
+<li><p><code>@copyright</code><br>  使用范围：<code>class</code>，<code>function</code>，<code>var</code>，<code>define</code>，<code>module</code>，<code>use</code></p>
+<p>  指明版权信息</p>
+</li>
+<li><p><code>@deprecated</code><br>  使用范围：<code>class</code>，<code>function</code>，<code>var</code>，<code>define</code>，<code>module</code>，<code>constent</code>，<code>global</code>，<code>include</code><br>  指明不用或者废弃的关键字</p>
+</li>
+<li><p><code>@example</code><br>  该标记用于解析一段文件内容，并将他们高亮显示。Phpdoc会试图从该标记给的文件路径中读取文件内容</p>
+</li>
+<li><p><code>@const</code><br>  使用范围：<code>define</code></p>
+<p>  用来指明php中define的常量</p>
+</li>
+<li><p><code>@final</code><br>  使用范围：<code>class</code>,<code>function</code>,<code>var</code></p>
+<p>  指明关键字是一个最终的类、方法、属性，禁止派生、修改。</p>
+</li>
+<li><p><code>@filesource</code><br>  和example类似，只不过该标记将直接读取当前解析的php文件的内容并显示。</p>
+</li>
+<li><p><code>@global</code><br>  指明在此函数中引用的全局变量</p>
+</li>
+<li><p><code>@ingore</code><br>  用于在文档中忽略指定的关键字</p>
+</li>
+<li><p><code>@license</code><br>  许可权</p>
+</li>
+<li><p><code>@link</code><br>  类似于<code>license</code>；但还可以通过link指到文档中的任何一个关键字</p>
+</li>
+<li><p><code>@name</code><br>  为关键字指定一个别名。</p>
+</li>
+<li><p><code>@package</code><br>  使用范围：页面级别的-&gt; <code>define</code>，<code>function</code>，<code>include</code></p>
+<p>  类级别的-&gt;<code>class</code>，<code>var</code>，<code>methods</code></p>
+<p>  用于逻辑上将一个或几个关键字分到一组。</p>
+</li>
+<li><p><code>@abstrcut</code><br>  说明当前类是一个抽象类</p>
+</li>
+<li><p><code>@param</code><br>  指明一个函数的参数</p>
+</li>
+<li><p><code>@return</code><br>  指明一个方法或函数的返回指</p>
+</li>
+<li><p><code>@static</code><br>  指明关建字是静态的。</p>
+</li>
+<li><p><code>@var</code><br>  指明变量类型</p>
+</li>
+<li><p><code>@version</code><br>  指明版本信息</p>
+</li>
+<li><p><code>@todo</code><br>  指明应该改进或没有实现的地方</p>
+</li>
+<li><p><code>@throws</code><br>  指明此函数可能抛出的错误异常,极其发生的情况</p>
+<p>  上面提到过，普通的文档标记标记必须在每行的开头以@标记，除此之外，还有一种标记叫做inline tag,用{@}表示，具体包括以下几种：</p>
+</li>
+<li><p><code>{@link}</code><br>  用法同<code>@link</code></p>
+</li>
+<li><p><code>{@source}</code><br>  显示一段函数或方法的内容</p>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2015-10-26T16:00:00.000Z" itemprop="dateUpdated">2015-10-27 00:00:00</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/images/avatar.jpg" alt="叶子坑">
+            叶子坑
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/11/286.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">小学题：啤酒2块1瓶，4个盖换1瓶，2个空瓶换1瓶，10块可以喝几瓶?</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/10/216.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">javascript立即调用的函数表达式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>叶子坑 &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备15063901号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

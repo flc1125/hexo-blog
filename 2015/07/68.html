@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>win7系统下VirtualBox升级后不能为虚拟电脑打开一个新任务0x80004005的解决方法 | 叶子坑 | 来也匆匆，去也匆匆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="问题最近 VirtualBox 虚拟机软件更新的频率越来越快，不少用户都升级到了 VirtualBox 4.326 版本，结果在升级后发现原来创建的虚拟机打不开了，提示信息为： 不能为虚拟电脑 win7 打开一个新任务.Unable to load R3 module C:\Program Files\Oracle\VirtualBox/VBoxDD.DLL (VBoxDD): GetLastEr">
+<meta name="keywords" content="叶子坑, 技术分享, 资源分享">
+<meta property="og:type" content="article">
+<meta property="og:title" content="win7系统下VirtualBox升级后不能为虚拟电脑打开一个新任务0x80004005的解决方法">
+<meta property="og:url" content="http://yoursite.com/2015/07/68.html">
+<meta property="og:site_name" content="叶子坑">
+<meta property="og:description" content="问题最近 VirtualBox 虚拟机软件更新的频率越来越快，不少用户都升级到了 VirtualBox 4.326 版本，结果在升级后发现原来创建的虚拟机打不开了，提示信息为： 不能为虚拟电脑 win7 打开一个新任务.Unable to load R3 module C:\Program Files\Oracle\VirtualBox/VBoxDD.DLL (VBoxDD): GetLastEr">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2015/07/68/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2015/07/68/2.jpg">
+<meta property="og:updated_time" content="2015-07-30T05:17:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="win7系统下VirtualBox升级后不能为虚拟电脑打开一个新任务0x80004005的解决方法">
+<meta name="twitter:description" content="问题最近 VirtualBox 虚拟机软件更新的频率越来越快，不少用户都升级到了 VirtualBox 4.326 版本，结果在升级后发现原来创建的虚拟机打不开了，提示信息为： 不能为虚拟电脑 win7 打开一个新任务.Unable to load R3 module C:\Program Files\Oracle\VirtualBox/VBoxDD.DLL (VBoxDD): GetLastEr">
+<meta name="twitter:image" content="http://yoursite.com/2015/07/68/1.jpg">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">叶子坑</h5>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://docs.flc.io" target="_blank" >
+                <i class="icon icon-lg icon-book"></i>
+                文档库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/flc1125" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">win7系统下VirtualBox升级后不能为虚拟电脑打开一个新任务0x80004005的解决方法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">win7系统下VirtualBox升级后不能为虚拟电脑打开一个新任务0x80004005的解决方法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-07-30T05:17:00.000Z" itemprop="datePublished" class="page-time">
+  2015-07-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/devops/">运维</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决"><span class="post-toc-number">2.</span> <span class="post-toc-text">解决</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2015/07/68"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">win7系统下VirtualBox升级后不能为虚拟电脑打开一个新任务0x80004005的解决方法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-07-30 13:17:00" datetime="2015-07-30T05:17:00.000Z"  itemprop="datePublished">2015-07-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/devops/">运维</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>最近 VirtualBox 虚拟机软件更新的频率越来越快，不少用户都升级到了 VirtualBox 4.326 版本，结果在升级后发现原来创建的虚拟机打不开了，提示信息为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">不能为虚拟电脑 win7 打开一个新任务.</span><br><span class="line"></span><br><span class="line">Unable to load R3 module C:\Program Files\Oracle\VirtualBox/VBoxDD.DLL (VBoxDD): GetLastError=1790 (VERR_UNRESOLVED_ERROR).</span><br><span class="line"></span><br><span class="line">返回 代码:E_FAIL (0x80004005)</span><br><span class="line">组件:Console</span><br><span class="line">界面:IConsole &#123;8ab7c520-2442-4b66-8d74-4ff1e195d2b6&#125;</span><br></pre></td></tr></table></figure>
+<img src="/2015/07/68/1.jpg" class="slug">
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><blockquote>
+<p>出现这样的情况该如何解决呢？</p>
+<p>如果不是升级导致的 那么可以看这编文章：<a href="http://www.xitonghe.com/jiaocheng/diannao-196.html" target="_blank" rel="noopener">http://www.xitonghe.com/jiaocheng/diannao-196.html</a></p>
+<p>通过分析日志，我们将问题锁定在 win7系统的主题核心文件“uxtheme.dll”其实我们将已经破解的win7系统主题核心文件还原，即可打开虚拟机了。</p>
+</blockquote>
+<p><strong>操作步骤：</strong></p>
+<ol>
+<li><p>下载未破解的win7主题核心文件“themeui.dll”，“themeservice.dll”，“uxtheme.dll”三个文件；</p>
+<p> 下载地址：<a href="http://www.xitonghe.com/rjxz/xtgj/patch-xiazai-278.html" target="_blank" rel="noopener">http://www.xitonghe.com/rjxz/xtgj/patch-xiazai-278.html</a></p>
+</li>
+<li><p>然后在WinPE下将这三个文件覆盖到C:\windows\system32\文件夹下即可。</p>
+<p> 这里为了大家方便，小编给大家准备了主题破解工具（带还原功能），下载后将三个文件的备份（backup后缀）复制到C:\windows\system32\目录，然后运行“UniversalThemePatcher-x64.exe” 这时软件会提示已经破解过，到主界面后，我们分别还原三个文件。</p>
+ <img src="/2015/07/68/2.jpg" class="slug">
+</li>
+</ol>
+<p>OK，到这里就解决完毕了…</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2015-07-30T05:17:00.000Z" itemprop="dateUpdated">2015-07-30 13:17:00</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/images/avatar.jpg" alt="叶子坑">
+            叶子坑
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/08/174.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Git 常用命令整理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/07/33.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">罗生门的谎言</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>叶子坑 &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备15063901号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
