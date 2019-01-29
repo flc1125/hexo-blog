@@ -77,8 +77,15 @@ theme: anatole
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+# deploy:
+#   type:
+# aliyun-deploy-oss
 deploy:
-  type:
+  type: aliyun
+  bucket: blog-flc-io
+  region: oss-cn-qingdao
+  accessKeyId: LTAI2RWvztL2YD6f
+  accessKeySecret: wQBiuZk3jeoz77zWyhkLsTTKjb30La
 
 archive_generator:
   per_page: 0  
@@ -100,5 +107,5 @@ feed:
 
 # sitemap
 sitemap:
-    path: sitemap.xml
-    template: ./sitemap_template.xml
+  path: sitemap.xml
+  template: ./sitemap_template.xml
