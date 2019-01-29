@@ -11,13 +11,13 @@ tags:
 
 > 基于多个 Docker 容器
 
-## 拉取 nginx 镜像
+## 01 / 拉取 nginx 镜像
 
 ```bash
 docker pull nginx:alpine # 推荐 alpine
 ```
 
-## 容器间通信
+## 02 / 容器间通信
 
 官方提供的是 `docker network` 作为解决方案
 
@@ -25,7 +25,7 @@ docker pull nginx:alpine # 推荐 alpine
 docker netware create nginx # 创建名称 nginx 网络
 ```
 
-## 创建容器
+## 03 / 创建容器
 
 > 负载均衡，所以至少需要三个 nginx 容器
 
@@ -56,7 +56,7 @@ docker run -dit -v /nginx/:/nginx/ -p 8002:80 --network nginx --network-alias sl
 # 8002 自定义，不重复即可
 ```
 
-## nginx 配置
+## 04 / nginx 配置
 
 > 仅列出核心部分代码
 
