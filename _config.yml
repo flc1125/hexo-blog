@@ -86,7 +86,7 @@ archive_generator:
   monthly: false
   daily: false
 
-# Rss 订阅
+# rss 订阅
 feed:
   type: atom
   path: atom.xml
@@ -97,3 +97,8 @@ feed:
   content_limit_delim: ' '
   order_by: -date
   icon: icon.png
+
+# sitemap
+sitemap:
+    path: sitemap.xml
+    template: ./sitemap_template.xml
